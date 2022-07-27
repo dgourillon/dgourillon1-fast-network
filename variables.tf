@@ -14,22 +14,6 @@
  * limitations under the License.
  */
 
-variable "automation" {
-  # tfdoc:variable:source 00-bootstrap
-  description = "Automation resources created by the bootstrap stage."
-  type = object({
-    outputs_bucket = string
-  })
-}
-
-variable "billing_account" {
-  # tfdoc:variable:source 00-bootstrap
-  description = "Billing account id and organization id ('nnnnnnnn' or null)."
-  type = object({
-    id              = string
-    organization_id = number
-  })
-}
 
 variable "custom_adv" {
   description = "Custom advertisement definitions in name => range format."
@@ -71,15 +55,6 @@ variable "dns" {
   }
 }
 
-variable "folder_ids" {
-  # tfdoc:variable:source 01-resman
-  description = "Folders to be used for the networking resources in folders/nnnnnnnnnnn format. If null, folder will be created."
-  type = object({
-    networking      = string
-    networking-dev  = string
-    networking-prod = string
-  })
-}
 
 variable "l7ilb_subnets" {
   description = "Subnets used for L7 ILBs."
@@ -99,15 +74,6 @@ variable "l7ilb_subnets" {
   }
 }
 
-variable "organization" {
-  # tfdoc:variable:source 00-bootstrap
-  description = "Organization details."
-  type = object({
-    domain      = string
-    id          = number
-    customer_id = string
-  })
-}
 
 variable "outputs_location" {
   description = "Path where providers and tfvars files for the following stages are written. Leave empty to disable."
