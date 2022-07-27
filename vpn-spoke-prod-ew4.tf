@@ -19,7 +19,7 @@
 # local.vpn_spoke_bgp_peer_options is defined in the dev VPN file
 
 module "landing-to-prod-ew4-vpn" {
-  source           = "../../../modules/net-vpn-ha"
+  source           = "./modules/net-vpn-ha"
   project_id       = module.landing-project.project_id
   network          = module.landing-vpc.self_link
   region           = "europe-west4"
@@ -63,7 +63,7 @@ module "landing-to-prod-ew4-vpn" {
 }
 
 module "prod-to-landing-ew4-vpn" {
-  source           = "../../../modules/net-vpn-ha"
+  source           = "./modules/net-vpn-ha"
   project_id       = module.prod-spoke-project.project_id
   network          = module.prod-spoke-vpc.self_link
   region           = "europe-west4"

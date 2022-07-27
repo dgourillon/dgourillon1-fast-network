@@ -19,7 +19,7 @@
 # GCP-specific environment zone
 
 module "prod-dns-private-zone" {
-  source          = "../../../modules/dns"
+  source          = "./modules/dns"
   project_id      = module.prod-spoke-project.project_id
   type            = "private"
   name            = "prod-gcp-example-com"
@@ -33,7 +33,7 @@ module "prod-dns-private-zone" {
 # root zone peering to landing to centralize configuration; remove if unneeded
 
 module "prod-landing-root-dns-peering" {
-  source          = "../../../modules/dns"
+  source          = "./modules/dns"
   project_id      = module.prod-spoke-project.project_id
   type            = "peering"
   name            = "prod-root-dns-peering"
@@ -43,7 +43,7 @@ module "prod-landing-root-dns-peering" {
 }
 
 module "prod-reverse-10-dns-peering" {
-  source          = "../../../modules/dns"
+  source          = "./modules/dns"
   project_id      = module.prod-spoke-project.project_id
   type            = "peering"
   name            = "prod-reverse-10-dns-peering"

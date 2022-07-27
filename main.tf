@@ -42,7 +42,7 @@ locals {
 }
 
 module "folder" {
-  source        = "../../../modules/folder"
+  source        = "./modules/folder"
   parent        = "organizations/${local.organization}"
   name          = "Networking"
   folder_create = local.folder_ids.networking == null
