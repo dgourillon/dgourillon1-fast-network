@@ -43,10 +43,10 @@ locals {
 
 module "folder" {
   source        = "../../../modules/folder"
-  parent        = "organizations/${var.organization.id}"
+  parent        = "organizations/${local.organization}"
   name          = "Networking"
-  folder_create = var.folder_ids.networking == null
-  id            = var.folder_ids.networking
+  folder_create = local.folder_ids.networking == null
+  id            = local.folder_ids.networking
   firewall_policy_factory = {
     cidr_file   = "${var.data_dir}/cidrs.yaml"
     policy_name = null

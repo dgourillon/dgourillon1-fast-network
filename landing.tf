@@ -18,9 +18,9 @@
 
 module "landing-project" {
   source          = "../../../modules/project"
-  billing_account = var.billing_account.id
+  billing_account = local.billing_account.id
   name            = "prod-net-landing-0"
-  parent          = var.folder_ids.networking-prod
+  parent          = local.folder_ids.networking-prod
   prefix          = var.prefix
   service_config = {
     disable_on_destroy         = false
