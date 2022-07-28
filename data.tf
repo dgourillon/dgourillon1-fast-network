@@ -26,6 +26,8 @@ locals {
   billing_account   = data.terraform_remote_state.bootstrap.outputs.billing_account
   service_accounts_from_remote  = data.terraform_remote_state.resman.outputs.service_accounts
   folder_ids  = data.terraform_remote_state.resman.outputs.folder_ids
+  custom_roles_from_remote = data.terraform_remote_state.bootstrap.outputs.custom_roles
+
 }
 
 
