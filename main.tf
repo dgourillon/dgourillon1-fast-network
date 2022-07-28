@@ -43,7 +43,7 @@ locals {
 
 module "folder" {
   source        = "./modules/folder"
-  parent        = locals.top_folder
+  parent        = local.top_folder
   name          = "Networking"
   folder_create = local.folder_ids.networking == null
   id            = local.folder_ids.networking
