@@ -1,6 +1,6 @@
 # skip boilerplate check
 
-region: europe-west1
+region: us-central1
 description: Default subnet for dev Data Platform
 ip_cidr_range: 10.128.48.0/24
 secondary_ip_range:
