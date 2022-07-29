@@ -26,7 +26,7 @@ locals {
     })]
   }
   region_trigram = {
-    europe-west1 = "ew1"
+    europe-west1 = "uc1"
     europe-west3 = "ew3"
   }
   stage3_sas_delegated_grants = [

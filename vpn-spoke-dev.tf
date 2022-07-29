@@ -33,24 +33,24 @@ locals {
 
 # development spoke
 
-module "landing-to-dev-ew1-vpn" {
+module "landing-to-dev-uc1-vpn" {
   source     = "./modules/net-vpn-ha"
   project_id = module.landing-project.project_id
   network    = module.landing-vpc.self_link
   region     = "europe-west1"
-  name       = "vpn-to-dev-ew1"
+  name       = "vpn-to-dev-uc1"
   # The router used for this VPN is managed in vpn-prod.tf
   router_create    = false
-  router_name      = "landing-vpn-ew1"
-  router_asn       = var.router_spoke_configs.landing-ew1.asn
-  peer_gcp_gateway = module.dev-to-landing-ew1-vpn.self_link
+  router_name      = "landing-vpn-uc1"
+  router_asn       = var.router_spoke_configs.landing-uc1.asn
+  peer_gcp_gateway = module.dev-to-landing-uc1-vpn.self_link
   tunnels = {
     0 = {
       bgp_peer = {
         address = cidrhost("169.254.0.0/27", 1)
-        asn     = var.router_spoke_configs.spoke-dev-ew1.asn
+        asn     = var.router_spoke_configs.spoke-dev-uc1.asn
       }
-      bgp_peer_options = local.vpn_spoke_bgp_peer_options.landing-ew1
+      bgp_peer_options = local.vpn_spoke_bgp_peer_options.landing-uc1
       bgp_session_range = "${
         cidrhost("169.254.0.0/27", 2)
       }/30"
@@ -63,9 +63,9 @@ module "landing-to-dev-ew1-vpn" {
     1 = {
       bgp_peer = {
         address = cidrhost("169.254.0.0/27", 5)
-        asn     = var.router_spoke_configs.spoke-dev-ew1.asn
+        asn     = var.router_spoke_configs.spoke-dev-uc1.asn
       }
-      bgp_peer_options = local.vpn_spoke_bgp_peer_options.landing-ew1
+      bgp_peer_options = local.vpn_spoke_bgp_peer_options.landing-uc1
       bgp_session_range = "${
         cidrhost("169.254.0.0/27", 6)
       }/30"
@@ -77,49 +77,49 @@ module "landing-to-dev-ew1-vpn" {
     }
   }
   depends_on = [
-    module.landing-to-prod-ew1-vpn.router
+    module.landing-to-prod-uc1-vpn.router
   ]
 }
 
-module "dev-to-landing-ew1-vpn" {
+module "dev-to-landing-uc1-vpn" {
   source           = "./modules/net-vpn-ha"
   project_id       = module.dev-spoke-project.project_id
   network          = module.dev-spoke-vpc.self_link
   region           = "europe-west1"
-  name             = "vpn-to-landing-ew1"
+  name             = "vpn-to-landing-uc1"
   router_create    = true
-  router_name      = "dev-spoke-vpn-ew1"
-  router_asn       = var.router_spoke_configs.spoke-dev-ew1.asn
-  peer_gcp_gateway = module.landing-to-dev-ew1-vpn.self_link
+  router_name      = "dev-spoke-vpn-uc1"
+  router_asn       = var.router_spoke_configs.spoke-dev-uc1.asn
+  peer_gcp_gateway = module.landing-to-dev-uc1-vpn.self_link
   tunnels = {
     0 = {
       bgp_peer = {
         address = cidrhost("169.254.0.0/27", 2)
-        asn     = var.router_spoke_configs.landing-ew1.asn
+        asn     = var.router_spoke_configs.landing-uc1.asn
       }
-      bgp_peer_options = local.vpn_spoke_bgp_peer_options.dev-ew1
+      bgp_peer_options = local.vpn_spoke_bgp_peer_options.dev-uc1
       bgp_session_range = "${
         cidrhost("169.254.0.0/27", 1)
       }/30"
       ike_version                     = 2
       peer_external_gateway_interface = null
       router                          = null
-      shared_secret                   = module.landing-to-dev-ew1-vpn.random_secret
+      shared_secret                   = module.landing-to-dev-uc1-vpn.random_secret
       vpn_gateway_interface           = 0
     }
     1 = {
       bgp_peer = {
         address = cidrhost("169.254.0.0/27", 6)
-        asn     = var.router_spoke_configs.landing-ew1.asn
+        asn     = var.router_spoke_configs.landing-uc1.asn
       }
-      bgp_peer_options = local.vpn_spoke_bgp_peer_options.dev-ew1
+      bgp_peer_options = local.vpn_spoke_bgp_peer_options.dev-uc1
       bgp_session_range = "${
         cidrhost("169.254.0.0/27", 5)
       }/30"
       ike_version                     = 2
       peer_external_gateway_interface = null
       router                          = null
-      shared_secret                   = module.landing-to-dev-ew1-vpn.random_secret
+      shared_secret                   = module.landing-to-dev-uc1-vpn.random_secret
       vpn_gateway_interface           = 1
     }
   }

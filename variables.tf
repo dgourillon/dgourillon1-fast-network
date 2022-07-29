@@ -131,7 +131,7 @@ variable "router_onprem_configs" {
     asn = number
   }))
   default = {
-    landing-ew1 = {
+    landing-uc1 = {
       asn = "65533"
       adv = null
       # adv = { default = false, custom = [] }
@@ -174,7 +174,7 @@ variable "vpn_onprem_configs" {
     }))
   }))
   default = {
-    landing-ew1 = {
+    landing-uc1 = {
       adv = {
         default = false
         custom = [

@@ -23,7 +23,7 @@
 #   name       = "test-vm-0"
 #   network_interfaces = [{
 #     network    = module.landing-vpc.self_link
-#     subnetwork = module.landing-vpc.subnet_self_links["europe-west1/landing-default-ew1"]
+#     subnetwork = module.landing-vpc.subnet_self_links["europe-west1/landing-default-uc1"]
 #     alias_ips  = {}
 #     nat        = false
 #     addresses  = null
@@ -56,7 +56,7 @@
 #   network_interfaces = [{
 #     network = module.dev-spoke-vpc.self_link
 #     # change the subnet name to match the values you are actually using
-#     subnetwork = module.dev-spoke-vpc.subnet_self_links["europe-west1/dev-default-ew1"]
+#     subnetwork = module.dev-spoke-vpc.subnet_self_links["europe-west1/dev-default-uc1"]
 #     alias_ips  = {}
 #     nat        = false
 #     addresses  = null
@@ -89,7 +89,7 @@
 #   network_interfaces = [{
 #     network = module.prod-spoke-vpc.self_link
 #     # change the subnet name to match the values you are actually using
-#     subnetwork = module.prod-spoke-vpc.subnet_self_links["europe-west1/prod-default-ew1"]
+#     subnetwork = module.prod-spoke-vpc.subnet_self_links["europe-west1/prod-default-uc1"]
 #     alias_ips  = {}
 #     nat        = false
 #     addresses  = null

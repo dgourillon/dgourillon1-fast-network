@@ -32,25 +32,25 @@ locals {
   }
 }
 
-module "landing-to-onprem-ew1-vpn" {
+module "landing-to-onprem-uc1-vpn" {
   count                 = local.enable_onprem_vpn ? 1 : 0
   source                = "./modules/net-vpn-ha"
   project_id            = module.landing-project.project_id
   network               = module.landing-vpc.self_link
   region                = "europe-west1"
-  name                  = "vpn-to-onprem-ew1"
+  name                  = "vpn-to-onprem-uc1"
   router_create         = true
-  router_name           = "landing-onprem-vpn-ew1"
-  router_asn            = var.router_onprem_configs.landing-ew1.asn
-  peer_external_gateway = var.vpn_onprem_configs.landing-ew1.peer_external_gateway
+  router_name           = "landing-onprem-vpn-uc1"
+  router_asn            = var.router_onprem_configs.landing-uc1.asn
+  peer_external_gateway = var.vpn_onprem_configs.landing-uc1.peer_external_gateway
   tunnels = {
-    for t in var.vpn_onprem_configs.landing-ew1.tunnels :
+    for t in var.vpn_onprem_configs.landing-uc1.tunnels :
     "remote-${t.vpn_gateway_interface}-${t.peer_external_gateway_interface}" => {
       bgp_peer = {
         address = cidrhost(t.session_range, 1)
         asn     = t.peer_asn
       }
-      bgp_peer_options                = local.bgp_peer_options_onprem.landing-ew1
+      bgp_peer_options                = local.bgp_peer_options_onprem.landing-uc1
       bgp_session_range               = "${cidrhost(t.session_range, 2)}/30"
       ike_version                     = 2
       peer_external_gateway_interface = t.peer_external_gateway_interface
