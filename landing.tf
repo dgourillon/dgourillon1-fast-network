@@ -92,7 +92,7 @@ module "landing-firewall" {
 module "landing-nat-uc1" {
   source         = "./modules/net-cloudnat"
   project_id     = module.landing-project.project_id
-  region         = "europe-west1"
+  region         = "us-central1"
   name           = "uc1"
   router_create  = true
   router_name    = "prod-nat-uc1"

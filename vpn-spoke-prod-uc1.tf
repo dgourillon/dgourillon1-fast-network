@@ -22,7 +22,7 @@ module "landing-to-prod-uc1-vpn" {
   source           = "./modules/net-vpn-ha"
   project_id       = module.landing-project.project_id
   network          = module.landing-vpc.self_link
-  region           = "europe-west1"
+  region           = "us-central1"
   name             = "vpn-to-prod-uc1"
   router_create    = true
   router_name      = "landing-vpn-uc1"
@@ -66,7 +66,7 @@ module "prod-to-landing-uc1-vpn" {
   source           = "./modules/net-vpn-ha"
   project_id       = module.prod-spoke-project.project_id
   network          = module.prod-spoke-vpc.self_link
-  region           = "europe-west1"
+  region           = "us-central1"
   name             = "vpn-to-landing-uc1"
   router_create    = true
   router_name      = "prod-spoke-vpn-uc1"

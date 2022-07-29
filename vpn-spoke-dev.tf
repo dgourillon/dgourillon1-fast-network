@@ -37,7 +37,7 @@ module "landing-to-dev-uc1-vpn" {
   source     = "./modules/net-vpn-ha"
   project_id = module.landing-project.project_id
   network    = module.landing-vpc.self_link
-  region     = "europe-west1"
+  region     = "us-central1"
   name       = "vpn-to-dev-uc1"
   # The router used for this VPN is managed in vpn-prod.tf
   router_create    = false
@@ -85,7 +85,7 @@ module "dev-to-landing-uc1-vpn" {
   source           = "./modules/net-vpn-ha"
   project_id       = module.dev-spoke-project.project_id
   network          = module.dev-spoke-vpc.self_link
-  region           = "europe-west1"
+  region           = "us-central1"
   name             = "vpn-to-landing-uc1"
   router_create    = true
   router_name      = "dev-spoke-vpn-uc1"

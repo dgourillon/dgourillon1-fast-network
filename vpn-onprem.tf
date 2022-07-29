@@ -37,7 +37,7 @@ module "landing-to-onprem-uc1-vpn" {
   source                = "./modules/net-vpn-ha"
   project_id            = module.landing-project.project_id
   network               = module.landing-vpc.self_link
-  region                = "europe-west1"
+  region                = "us-central1"
   name                  = "vpn-to-onprem-uc1"
   router_create         = true
   router_name           = "landing-onprem-vpn-uc1"
