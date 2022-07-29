@@ -1,5 +1,5 @@
 # skip boilerplate check
 
 region: us-central1
-ip_cidr_range: 10.128.64.0/24
+ip_cidr_range: 10.168.30.0/26
 description: Default subnet for prod
