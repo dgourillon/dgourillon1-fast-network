@@ -57,11 +57,11 @@ variable "l7ilb_subnets" {
   default = {
     prod = [
       { ip_cidr_range = "10.128.92.0/24", region = "us-central1" },
-      { ip_cidr_range = "10.128.93.0/24", region = "europe-west4" }
+      { ip_cidr_range = "10.128.93.0/24", region = "us-west2" }
     ]
     dev = [
       { ip_cidr_range = "10.128.60.0/24", region = "us-central1" },
-      { ip_cidr_range = "10.128.61.0/24", region = "europe-west4" }
+      { ip_cidr_range = "10.128.61.0/24", region = "us-west2" }
     ]
   }
 }

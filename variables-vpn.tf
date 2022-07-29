@@ -26,11 +26,11 @@ variable "router_spoke_configs" {
   }))
   default = {
     landing-uc1    = { asn = "64512", adv = null }
-    landing-ew4    = { asn = "64512", adv = null }
+    landing-uw2    = { asn = "64512", adv = null }
     spoke-dev-uc1  = { asn = "64513", adv = null }
-    spoke-dev-ew4  = { asn = "64513", adv = null }
+    spoke-dev-uw2  = { asn = "64513", adv = null }
     spoke-prod-uc1 = { asn = "64514", adv = null }
-    spoke-prod-ew4 = { asn = "64514", adv = null }
+    spoke-prod-uw2 = { asn = "64514", adv = null }
   }
 }
 
@@ -45,7 +45,7 @@ variable "vpn_spoke_configs" {
       default = false
       custom  = ["rfc_1918_10", "rfc_1918_172", "rfc_1918_192"]
     }
-    landing-ew4 = {
+    landing-uw2 = {
       default = false
       custom  = ["rfc_1918_10", "rfc_1918_172", "rfc_1918_192"]
     }
@@ -57,7 +57,7 @@ variable "vpn_spoke_configs" {
       default = false
       custom  = ["gcp_prod"]
     }
-    prod-ew4 = {
+    prod-uw2 = {
       default = false
       custom  = ["gcp_prod"]
     }
