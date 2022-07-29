@@ -98,6 +98,18 @@ module "prod-spoke-cloudnat" {
   logging_filter = "ERRORS_ONLY"
 }
 
+# module "prod-spoke-cloudnat-uc1" {
+#   source         = "./modules/net-cloudnat"
+#   project_id     = module.prod-spoke-project.project_id
+#   region         = "us-central1"
+#   name           = "prod-nat-uc1"
+#   router_create  = true
+#   router_network = module.prod-spoke-vpc.name
+#   router_asn     = 4200001024
+#   logging_filter = "ERRORS_ONLY"
+# }
+
+
 # Create delegated grants for stage3 service accounts
 resource "google_project_iam_binding" "prod_spoke_project_iam_delegated" {
   project = module.prod-spoke-project.project_id
