@@ -27,7 +27,7 @@ locals {
   }
   region_trigram = {
     us-central1 = "uc1"
-    europe-west3 = "ew3"
+    us-west2 = "uw2"
   }
   stage3_sas_delegated_grants = [
     "roles/composer.sharedVpcAgent",
