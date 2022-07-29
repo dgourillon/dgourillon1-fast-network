@@ -1,0 +1,8 @@
+# skip boilerplate check
+
+region: us-west2
+description: Default subnet for dev Data Platform
+ip_cidr_range: 10.168.26.0/25
+secondary_ip_range:
+   pods: 10.168.27.0/22
+   services: 10.168.26.128/25
