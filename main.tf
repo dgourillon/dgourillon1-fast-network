@@ -26,7 +26,7 @@ locals {
     })]
   }
   region_trigram = {
-    us-central1 = "uc1",
+    us-central1 = "uc1"
     us-west2 = "uw2"
   }
   stage3_sas_delegated_grants = [
