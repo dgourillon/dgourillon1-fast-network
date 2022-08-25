@@ -34,7 +34,7 @@ locals {
 # development spoke
 
 module "landing-to-dev-uc1-vpn" {
-  source     = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/net-vpn-ha"
+  source     = "github.com/dgourillon/fast-fabric-modules/net-vpn-ha"
   project_id = module.landing-project.project_id
   network    = module.landing-vpc.self_link
   region     = "us-central1"
@@ -82,7 +82,7 @@ module "landing-to-dev-uc1-vpn" {
 }
 
 module "dev-to-landing-uc1-vpn" {
-  source           = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/net-vpn-ha"
+  source           = "github.com/dgourillon/fast-fabric-modules/net-vpn-ha"
   project_id       = module.dev-spoke-project.project_id
   network          = module.dev-spoke-vpc.self_link
   region           = "us-central1"

@@ -42,7 +42,7 @@ locals {
 }
 
 module "folder" {
-  source        = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/folder"
+  source        = "github.com/dgourillon/fast-fabric-modules/folder"
   parent        = local.top_folder
   name          = "Networking"
   folder_create = local.folder_ids.networking == null

@@ -19,7 +19,7 @@
 # local.vpn_spoke_bgp_peer_options is defined in the dev VPN file
 
 module "landing-to-prod-uw2-vpn" {
-  source           = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/net-vpn-ha"
+  source           = "github.com/dgourillon/fast-fabric-modules/net-vpn-ha"
   project_id       = module.landing-project.project_id
   network          = module.landing-vpc.self_link
   region           = "us-west2"
@@ -63,7 +63,7 @@ module "landing-to-prod-uw2-vpn" {
 }
 
 module "prod-to-landing-uw2-vpn" {
-  source           = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/net-vpn-ha"
+  source           = "github.com/dgourillon/fast-fabric-modules/net-vpn-ha"
   project_id       = module.prod-spoke-project.project_id
   network          = module.prod-spoke-vpc.self_link
   region           = "us-west2"

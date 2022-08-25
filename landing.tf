@@ -17,7 +17,7 @@
 # tfdoc:file:description Landing VPC and related resources.
 
 module "landing-project" {
-  source          = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/project"
+  source          = "github.com/dgourillon/fast-fabric-modules/project"
   billing_account = local.billing_account.id
   name            = "prod-net-landing-0"
   parent          = local.folder_ids.networking-prod
@@ -48,7 +48,7 @@ module "landing-project" {
 }
 
 module "landing-vpc" {
-  source     = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/net-vpc"
+  source     = "github.com/dgourillon/fast-fabric-modules/net-vpc"
   project_id = module.landing-project.project_id
   name       = "prod-landing-0"
   mtu        = 1500
@@ -78,7 +78,7 @@ module "landing-vpc" {
 }
 
 module "landing-firewall" {
-  source              = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/net-vpc-firewall"
+  source              = "github.com/dgourillon/fast-fabric-modules/net-vpc-firewall"
   project_id          = module.landing-project.project_id
   network             = module.landing-vpc.name
   admin_ranges        = []
@@ -90,7 +90,7 @@ module "landing-firewall" {
 }
 
 module "landing-nat-uc1" {
-  source         = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/net-cloudnat"
+  source         = "github.com/dgourillon/fast-fabric-modules/net-cloudnat"
   project_id     = module.landing-project.project_id
   region         = "us-central1"
   name           = "uc1"

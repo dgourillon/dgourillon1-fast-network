@@ -17,7 +17,7 @@
 # tfdoc:file:description temporary instances for testing
 
 # module "test-vm-landing-0" {
-#   source     = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/compute-vm"
+#   source     = "github.com/dgourillon/fast-fabric-modules/compute-vm"
 #   project_id = module.landing-project.project_id
 #   zone       = "us-central1-b"
 #   name       = "test-vm-0"
@@ -49,7 +49,7 @@
 # }
 
 # module "test-vm-dev-0" {
-#   source     = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/compute-vm"
+#   source     = "github.com/dgourillon/fast-fabric-modules/compute-vm"
 #   project_id = module.dev-spoke-project.project_id
 #   zone       = "us-central1-b"
 #   name       = "test-vm-0"
@@ -82,7 +82,7 @@
 # }
 
 # module "test-vm-prod-0" {
-#   source     = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/compute-vm"
+#   source     = "github.com/dgourillon/fast-fabric-modules/compute-vm"
 #   project_id = module.prod-spoke-project.project_id
 #   zone       = "us-central1-b"
 #   name       = "test-vm-0"
