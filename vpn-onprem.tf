@@ -34,7 +34,7 @@ locals {
 
 module "landing-to-onprem-uc1-vpn" {
   count                 = local.enable_onprem_vpn ? 1 : 0
-  source                = "./modules/net-vpn-ha"
+  source                = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/net-vpn-ha"
   project_id            = module.landing-project.project_id
   network               = module.landing-vpc.self_link
   region                = "us-central1"

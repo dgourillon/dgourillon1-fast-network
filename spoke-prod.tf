@@ -17,7 +17,7 @@
 # tfdoc:file:description Production spoke VPC and related resources.
 
 module "prod-spoke-project" {
-  source          = "./modules/project"
+  source          = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/project"
   billing_account = local.billing_account.id
   name            = "prod-net-spoke-0"
   parent          = local.folder_ids.networking-prod
@@ -48,7 +48,7 @@ module "prod-spoke-project" {
 }
 
 module "prod-spoke-vpc" {
-  source             = "./modules/net-vpc"
+  source             = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/net-vpc"
   project_id         = module.prod-spoke-project.project_id
   name               = "prod-spoke-0"
   mtu                = 1500
@@ -75,7 +75,7 @@ module "prod-spoke-vpc" {
 }
 
 module "prod-spoke-firewall" {
-  source              = "./modules/net-vpc-firewall"
+  source              = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/net-vpc-firewall"
   project_id          = module.prod-spoke-project.project_id
   network             = module.prod-spoke-vpc.name
   admin_ranges        = []
@@ -88,7 +88,7 @@ module "prod-spoke-firewall" {
 
 module "prod-spoke-cloudnat" {
   for_each       = toset(values(module.prod-spoke-vpc.subnet_regions))
-  source         = "./modules/net-cloudnat"
+  source         = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/net-cloudnat"
   project_id     = module.prod-spoke-project.project_id
   region         = each.value
   name           = "prod-nat-${local.region_trigram[each.value]}"
@@ -99,7 +99,7 @@ module "prod-spoke-cloudnat" {
 }
 
 # module "prod-spoke-cloudnat-uc1" {
-#   source         = "./modules/net-cloudnat"
+#   source         = "github.com/dgourillon/fast-fabric-modules/fast-fabric-modules/net-cloudnat"
 #   project_id     = module.prod-spoke-project.project_id
 #   region         = "us-central1"
 #   name           = "prod-nat-uc1"
