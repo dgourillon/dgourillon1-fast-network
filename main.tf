@@ -53,7 +53,7 @@ module "folder" {
     rules_file  = "${var.data_dir}/hierarchical-policy-rules.yaml"
   }
   firewall_policy_association = {
-    factory-policy = "1"
+    factory-policy = "factory"
   }
 }
 

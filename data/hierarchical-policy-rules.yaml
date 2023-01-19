@@ -40,7 +40,7 @@ allow-rdp-from-iap:
   description: Enable rdp from IAP
   direction: INGRESS
   action: allow
-  priority: 1003
+  priority: 1004
   ranges:
     - 35.235.240.0/20
   ports:
