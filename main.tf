@@ -49,7 +49,7 @@ module "folder" {
   id            = local.folder_ids.networking
   firewall_policy_factory = {
     cidr_file   = "${var.data_dir}/cidrs.yaml"
-    policy_name = null
+    policy_name = "policy-networking"
     rules_file  = "${var.data_dir}/hierarchical-policy-rules.yaml"
   }
   firewall_policy_association = {
