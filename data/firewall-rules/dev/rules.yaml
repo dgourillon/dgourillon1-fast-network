@@ -11,6 +11,7 @@ ingress-allow-pf-nodes:
   use_service_accounts: false
   rules:
     - protocol: all
+      ports: []
 
 ingress-allow-dataflow-load:
   description: "Allow traffic to Dataflow nodes."
