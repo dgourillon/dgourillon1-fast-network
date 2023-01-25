@@ -49,17 +49,6 @@ allow-rdp-from-iap:
   enable_logging: false
 
 
-allow-icmp:
-  description: Enable ICMP
-  direction: INGRESS
-  action: allow
-  priority: 1003
-  ranges:
-    - 0.0.0.0/0
-  ports:
-    icmp: []
-  target_resources: null
-  enable_logging: false
 
 allow-test-from-iap:
   description: Enable test from IAP
