@@ -1,17 +1,16 @@
 # skip boilerplate check
 
-ingress-allow-composer-nodes:
+ingress-allow-pf-nodes:
   description: "Allow traffic to Composer nodes."
   direction: INGRESS
   action: allow
   sources: []
-  ranges: ["0.0.0.0/0"]
+  ranges: ["10.0.0.0/8"]
   targets:
-    - composer-worker
+    - allow-pf
   use_service_accounts: false
   rules:
-    - protocol: tcp
-      ports: [80, 443, 3306, 3307]
+    - protocol: all
 
 ingress-allow-dataflow-load:
   description: "Allow traffic to Dataflow nodes."
