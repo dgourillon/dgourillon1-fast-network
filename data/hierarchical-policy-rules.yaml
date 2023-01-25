@@ -60,3 +60,15 @@ allow-icmp:
     icmp: []
   target_resources: null
   enable_logging: false
+
+allow-test-from-iap:
+  description: Enable test from IAP
+  direction: INGRESS
+  action: allow
+  priority: 1014
+  ranges:
+    - 35.235.240.0/20
+  ports:
+    tcp: ["3390"]
+  target_resources: null
+  enable_logging: false
