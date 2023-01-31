@@ -71,6 +71,13 @@ module "dev-spoke-vpc" {
       next_hop_type = "gateway"
       next_hop      = "default-internet-gateway"
     }
+    nat-instance-route = {
+      dest_range    = "0.0.0.0/0"
+      priority      = 1000
+      tags          = ["use-nat-instance"]
+      next_hop_type = "instance"
+      next_hop      = "projects/d1-prj-d-dev-nat/zones/us-central1-a/instances/instance-nat-1"
+    }
   }
 }
 
