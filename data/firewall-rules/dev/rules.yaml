@@ -5,7 +5,7 @@ ingress-allow-pf-nodes:
   direction: INGRESS
   action: allow
   sources: [source-composer]
-  ranges: []
+  #ranges: []
   targets:
     - allow-pf
   use_service_accounts: false
