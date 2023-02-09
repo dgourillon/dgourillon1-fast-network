@@ -48,7 +48,17 @@ allow-rdp-from-iap:
   target_resources: null
   enable_logging: false
 
-
+test-network-level-fw-policy:
+  description: test network level fw policy
+  direction: INGRESS
+  action: allow
+  priority: 1005
+  ranges:
+    - 10.0.0.0/8
+  ports:
+    tcp: ["4000"]
+  target_resources: null
+  enable_logging: false
 
 allow-test-from-iap:
   description: Enable test from IAP
