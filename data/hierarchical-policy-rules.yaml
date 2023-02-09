@@ -57,7 +57,7 @@ test-network-level-fw-policy:
     - 10.0.0.0/8
   ports:
     tcp: ["4000"]
-  target_resources: null
+  target_resources: projects/d1-nva-prod-net-nva-landing-0/global/networks/my-network
   enable_logging: false
 
 allow-test-from-iap:
