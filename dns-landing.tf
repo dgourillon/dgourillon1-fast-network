@@ -50,7 +50,7 @@ module "gcp-example-dns-private-zone" {
     "A whatever" = { type = "A", ttl = 300, records = ["127.0.0.2"] }
   }
 }
-``
+
 
 module "local-example-dns-private-zone" {
   source          = "github.com/dgourillon/fast-fabric-modules/dns"
