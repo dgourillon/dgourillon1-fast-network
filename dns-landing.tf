@@ -50,6 +50,20 @@ module "gcp-example-dns-private-zone" {
     "A whatever" = { type = "A", ttl = 300, records = ["127.0.0.2"] }
   }
 }
+``
+
+module "local-example-dns-private-zone" {
+  source          = "github.com/dgourillon/fast-fabric-modules/dns"
+  project_id      = module.landing-project.project_id
+  type            = "private"
+  name            = "local-zone"
+  domain          = "local."
+  client_networks = [module.landing-vpc.self_link]
+  recordsets = {
+    "A localhost" = { type = "A", ttl = 300, records = ["127.0.0.1"] }
+    "A whatever" = { type = "A", ttl = 300, records = ["127.0.0.2"] }
+  }
+}
 
 # Google API zone to trigger Private Access
 
