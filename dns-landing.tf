@@ -47,6 +47,7 @@ module "gcp-example-dns-private-zone" {
   client_networks = [module.landing-vpc.self_link]
   recordsets = {
     "A localhost" = { type = "A", ttl = 300, records = ["127.0.0.1"] }
+    "A whatever" = { type = "A", ttl = 300, records = ["127.0.0.2"] }
   }
 }
 
