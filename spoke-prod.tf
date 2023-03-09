@@ -56,10 +56,7 @@ module "prod-spoke-vpc" {
   psa_config         = try(var.psa_ranges.prod, null)
   subnets_proxy_only = local.l7ilb_subnets.prod
   # set explicit routes for googleapis in case the default route is deleted
-  psa_config = {
-    ranges = { bigrange = "10.160.0.0/16" }
-    routes = { export=true, import=true }
-  }
+ 
   routes = {
     private-googleapis = {
       dest_range    = "199.36.153.8/30"
